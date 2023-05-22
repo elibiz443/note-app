@@ -44,3 +44,12 @@ Add Tailwind CSS:
 ./bin/bundle add tailwindcss-rails
 ```
 
+Install Simple Form:
+```
+gem "simple_form", "~> 5.1.0"
+```
+```
+bundle && bin/rails generate simple_form:install
+```
+The role of the simple_form gem is to make forms easy to work with. It also helps keep the form designs consistent across the application by making sure we always use the same CSS classes.
+

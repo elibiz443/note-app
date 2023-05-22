@@ -18,7 +18,7 @@ class NotesController < ApplicationController
     if @note.save
       redirect_to notes_path, notice: "Note was successfully created."
     else
-      render :new
+      render :new, status: :unprocessable_entity
     end
   end
 
@@ -29,7 +29,7 @@ class NotesController < ApplicationController
     if @note.update(note_params)
       redirect_to notes_path, notice: "Note was successfully updated."
     else
-      render :edit
+      render :edit, status: :unprocessable_entity
     end
   end
 

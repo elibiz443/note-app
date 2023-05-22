@@ -23,7 +23,6 @@ group :development, :test do
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
   gem "rspec-rails"
   gem "factory_bot_rails", :require => false
-  gem "faker"
   gem "database_cleaner-active_record"
 end
 
@@ -36,3 +35,4 @@ end
 gem "tailwindcss-rails", "~> 2.0"
 gem "inline_svg"
 gem "simple_form", "~> 5.1.0"
+gem "faker"

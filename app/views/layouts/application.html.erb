@@ -21,6 +21,7 @@
   <%= favicon_link_tag "favicon.png" %>
 
   <body class="bg-gray-100 dark:bg-slate-900 max-w-full overflow-x-hidden font-['ubuntu']">
+    <%= render "shared/header" %>
     <%= yield %>
     <%= javascript_include_tag "preline" %>
   </body>

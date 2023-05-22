@@ -37,3 +37,10 @@ js: yarn build --watch
 css: yarn build:css --watch
 ```
 We already know the first command bin/rails server -p 3000 to launch the Rails server. The two other commands yarn build --watch and yarn build:css --watch are defined in the scripts section of the Package.json. They are in charge of precompiling our CSS and JavaScript code before handing them to the asset pipeline. The --watch option is here to ensure the CSS and JavaScript code is compiled every time we save a CSS/Sass or JavaScript file.
+
+Add Tailwind CSS:
+```
+./bin/bundle add tailwindcss-rails
+./bin/bundle add tailwindcss-rails
+```
+

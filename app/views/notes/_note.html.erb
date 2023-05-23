@@ -2,24 +2,26 @@
 <div class="max-w-[85rem] px-4 pb-10 mx-auto">
   <div class="grid sm:grid-cols-1 lg:grid-cols-2 items-center gap-6 md:gap-10">
     <% @notes.each do |note| %>
-      <!-- Card -->
-      <div class="w-full h-full bg-red-100 shadow-lg rounded-lg p-5 dark:bg-slate-900 hover:shadow-gray-800">
-        <div class="min-h-[70%]">
-          <p class="pb-4">
-            <i class="fa-solid fa-thumbtack text-red-900"></i>
-            <%= link_to note.name, note_path(note) %>
-          </p>
-        </div>
-        <div class="flex px-5 mb-10">
-          <div class="flex-auto">
-            <%= button_to "", note_path(note), method: :delete, class: "fa-solid fa-trash-can text-lg text-red-700 inline-flex justify-center items-center w-[2.5rem] h-[2.5rem] rounded-full border-4 border-red-300 bg-red-200 shadow-lg hover:shadow-gray-800 hover:border-red-800" %>
+      <%= turbo_frame_tag note do %>
+        <!-- Card -->
+        <div class="w-full h-full bg-red-100 shadow-lg rounded-lg p-5 dark:bg-slate-900 hover:shadow-gray-800">
+          <div class="min-h-[70%]">
+            <p class="pb-4">
+              <i class="fa-solid fa-thumbtack text-red-900"></i>
+              <%= link_to note.name, note_path(note), data: { turbo_frame: "_top" } %>
+            </p>
           </div>
-          <div class="flex-auto text-end">
-            <%= link_to "", edit_note_path(note), method: :delete, class: "fa-solid fa-pen-to-square text-lg text-red-700 w-[2.5rem] h-[2.5rem] rounded-full border-4 border-red-300 bg-red-200 text-center py-[0.4rem] shadow-lg hover:shadow-gray-800 hover:border-red-800" %>
+          <div class="flex px-5 mb-10">
+            <div class="flex-auto">
+              <%= button_to "", note_path(note), method: :delete, class: "fa-solid fa-trash-can text-lg text-red-700 inline-flex justify-center items-center w-[2.5rem] h-[2.5rem] rounded-full border-4 border-red-300 bg-red-200 shadow-lg hover:shadow-gray-800 hover:border-red-800" %>
+            </div>
+            <div class="flex-auto text-end">
+              <%= link_to "", edit_note_path(note), method: :delete, class: "fa-solid fa-pen-to-square text-lg text-red-700 w-[2.5rem] h-[2.5rem] rounded-full border-4 border-red-300 bg-red-200 text-center py-[0.4rem] shadow-lg hover:shadow-gray-800 hover:border-red-800" %>
+            </div>
           </div>
         </div>
-      </div>
-      <!-- End Card -->
+        <!-- End Card -->
+      <% end %>
     <% end %>
   </div>
 </div>

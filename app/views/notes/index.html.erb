@@ -1,11 +1,17 @@
 <main class="p-2 lg:p-10">
-  <div class="flex bg-gray-50 mb-10 px-10 py-4 rounded-full shadow-md hover:shadow-gray-800 h-[3.7rem]">
-    <div class="flex-auto">
-      <span class="font-bold text-lg md:text-xl lg:text-3xl text-gray-800">Notes</span>
+  <%= turbo_frame_tag "first_turbo_frame" do %>
+    <div class="flex bg-gray-50 mb-10 px-10 py-4 rounded-full shadow-md hover:shadow-gray-800 h-[3.7rem]">
+      <div class="flex-auto">
+        <span class="font-bold text-lg md:text-xl lg:text-3xl text-gray-800">Notes</span>
+      </div>
+      <div class="flex-auto text-end">
+        <%= link_to "Add note", new_note_path, class: "btn btn-primary hover:btn-primary-hover lg:btn-lg", data: { turbo_frame: dom_id(Note.new) } %>
+      </div>
     </div>
-    <div class="flex-auto text-end">
-      <%= link_to "Add note", new_note_path, class: "btn btn-primary hover:btn-primary-hover lg:btn-lg" %>
-    </div>
-  </div>
-  <%= render "note" %>
+  <% end %>
+  <%= turbo_frame_tag Note.new %>
+
+  <%= turbo_frame_tag "notes" do %>
+    <%= render "note" %>
+  <% end %>
 </main>
